@@ -34,15 +34,37 @@ class Test(Base):
         glBindVertexArray(vaoRef)
 
         ### Set up vertex attribute ###
-        positionData = [[0.0, 0.0, 0.0],  # Vertex 1
-                        [0.2, 0.4, 0.0],  # Vertex 2
-                        [0.4, 0.0, 0.0],  # Vertex 3
-                        [0.2, -0.4, 0.0],  # Vertex 4
-                        [-0.2, -0.4, 0.0],  # Vertex 5
-                        [-0.4, 0.0, 0.0],  # Vertex 6
-                        [-0.2, 0.4, 0.0]]  # Vertex 7
-        self.vertexCount = len(positionData)
-        positionAttribute = Attribute("vec3", positionData)
+        positionData = [[-0.025, 0.05, 0.0],  # Vertex 1
+                        [-0.1, 0.125, 0.0],  # Vertex 2
+                        [-0.175, 0.1, 0.0],  # Vertex 3
+                        [-0.175, 0.00, 0.0],  # Vertex 4
+                        [-0.1, -0.05, 0.0],  # Vertex 5
+                        [-0.1, -0.1, 0.0],  # Vertex 6
+                        [0.0, -0.125, 0.0],  # Vertex 7
+                        [0.1, -0.1, 0.0],  # Vertex 8
+                        [0.1, -0.05, 0.0],  # Vertex 9
+                        [0.175, 0.00, 0.0],  # Vertex 10
+                        [0.175, 0.1, 0.0],  # Vertex 11
+                        [0.1, 0.125, 0.0],  # Vertex 12
+                        [0.025, 0.05, 0.0]]  # Vertex 13
+
+        positionData1 = [[-0.025, 0.05, 0.0],  # Vertex 1
+                         [-0.1, 0.125, 0.0],  # Vertex 2
+                         [-0.175, 0.1, 0.0],  # Vertex 3
+                         [-0.225, 0.175, 0.0],  # Vertex 4
+                         [-0.25, 0.35, 0.0],  # Vertex 5
+                         [-0.125, 0.5, 0.0],  # Vertex 6
+                         [-0.0, 0.425, 0.0],  # Vertex 7
+                         [0.125, 0.5, 0.0],  # Vertex 8
+                         [0.25, 0.35, 0.0],  # Vertex 9
+                         [0.225, 0.175, 0.0],  # Vertex 10
+                         [0.175, 0.1, 0.0],  # Vertex 11
+                         [0.1, 0.125, 0.0],  # Vertex 12
+                        [0.025, 0.05, 0.0]]  # Vertex 13
+
+
+        self.vertexCount = len(positionData + positionData1)
+        positionAttribute = Attribute("vec3", positionData + positionData1)
         positionAttribute.associateVariable(self.programRef, "position")
 
     def update(self):
